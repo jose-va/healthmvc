@@ -3,7 +3,7 @@ En esta aplicación, podremos gestionar una serie de citas médicas realizadas p
 editar los datos de nuestro perfil o directamente crear una cita. Los médicos tendrán la posibilidad de ver todas las citas para una gestión de integra de las mismas.
 
 ### Ejemplo de uso
-![Paciente](./assets/paciente-ejemplo.gif)
+![Paciente](./assets/ejemplo.gif)
 
 ## Explicación de seguridad
 
