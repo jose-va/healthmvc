@@ -5,7 +5,7 @@ editar los datos de nuestro perfil o directamente crear una cita. Los médicos t
 ### Ejemplo de uso
 ![Paciente](./assets/ejemplo.gif)
 
-## Explicación de seguridad
+## ¿Como gestionamos la seguridad de nuestra aplicación?
 
 Spring Security va a controlar seguridad de la aplicación; se encargará de autenticar usuarios, autorizar acciones, controlar qué podemos hacer, 
 restringir el acceso a páginas y URLs de nuestra app, así como manejar sesiones y tokens. Trataremos los pacientes y los médicos como roles distintivos
