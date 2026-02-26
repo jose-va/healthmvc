@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Citas</title>
+</head>
+
+<body>
+    <h2>Mis Citas</h2>
+    <div>
+        <form th:action="@{/citas}" method="get">
+            <label>Filtrar por estado:</label>
+            <select name="estado">
+                <option value="">Todas</option>
+                <option value="PROGRAMADA" th:selected="${param.estado != null and param.estado[0] == 'PROGRAMADA'}">
+                    Programada</option>
+                <option value="REALIZADA" th:selected="${param.estado != null and param.estado[0] == 'REALIZADA'}">
+                    Realizada</option>
+                <option value="CANCELADA" th:selected="${param.estado != null and param.estado[0] == 'CANCELADA'}">
+                    Cancelada</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+    </div>
+    <br />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Especialidad</th>
+                <th>Estado</th>
+                <th>Médico</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cita : ${citas}">
+                <td th:text="${cita.fecha}"></td>
+                <td th:text="${cita.hora}"></td>
+                <td th:text="${cita.especialidad}"></td>
+                <td th:text="${cita.estado}"></td>
+                <td>
+                    <span th:if="${cita.medicoNombre != null}">Dr. <span th:text="${cita.medicoNombre}"></span></span>
+                    <span th:if="${cita.medicoNombre == null}">Sin asignar</span>
+                </td>
+                <td>
+                    <a th:href="@{/citas/{id}(id=${cita.id})}">Ver detalle</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(citas)}">
+                <td colspan="5">No hay citas registradas.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+    <div sec:authorize="hasRole('PACIENTE')">
+        <a th:href="@{/citas/nueva}">Solicitar nueva cita</a>
+        <br />
+        <a th:href="@{/paciente/perfil}">Mi perfil</a>
+    </div>
+    <div sec:authorize="hasRole('MEDICO')">
+        <a th:href="@{/medico/perfil}">Mi perfil</a>
+    </div>
+    <br />
+    <a th:href="@{/logout}">Cerrar Sesión</a>
+</body>
+</html>

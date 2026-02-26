@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Editar Perfil</title>
+</head>
+
+<body>
+    <h2>Editar Perfil de Médico</h2>
+
+    <form th:action="@{/medico/perfil/editar}" method="post" th:object="${perfil}">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        <div>
+            <label>Nombre</label>
+            <input type="text" th:field="*{nombre}" required />
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color:red"></span>
+        </div>
+
+        <div>
+            <label>Apellidos</label>
+            <input type="text" th:field="*{apellidos}" required />
+            <span th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}" style="color:red"></span>
+        </div>
+
+        <div>
+            <label>Especialidad</label>
+            <input type="text" th:field="*{especialidad}" />
+            <span th:if="${#fields.hasErrors('especialidad')}" th:errors="*{especialidad}" style="color:red"></span>
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a th:href="@{/medico/perfil}">Cancelar</a>
+</body>
+
+</html>

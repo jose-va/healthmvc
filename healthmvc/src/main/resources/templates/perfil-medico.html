@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Médico - Perfil</title>
+</head>
+
+<body>
+    <h2>Perfil del Médico</h2>
+
+    <div>
+        <p><strong>Nombre:</strong> <span th:text="${perfil.nombre}"></span></p>
+        <p><strong>Apellidos:</strong> <span th:text="${perfil.apellidos}"></span></p>
+        <p><strong>Especialidad:</strong> <span th:text="${perfil.especialidad}"></span></p>
+    </div>
+
+    <a th:href="@{/medico/perfil/editar}">Editar</a>
+    <br />
+    <a th:href="@{/citas}">Citas médico</a>
+    <br />
+    <a th:href="@{/logout}">Cerrar sesión</a>
+</body>
+
+</html>

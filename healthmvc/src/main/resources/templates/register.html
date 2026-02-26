@@ -1,0 +1,23 @@
+<form th:action="@{/register}" method="post" th:object="${usuarioDTO}" xmlns:th="http://www.w3.org/1999/xhtml">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+    <div>
+        <label>Usuario</label>
+        <input type="text" th:field="*{username}" required />
+    </div>
+
+    <div>
+        <label>Contraseña</label>
+        <input type="password" th:field="*{password}" required />
+    </div>
+
+    <div>
+        <label>Rol</label>
+        <select th:field="*{rol}">
+            <option value="PACIENTE">Paciente</option>
+            <option value="MEDICO">Médico</option>
+        </select>
+    </div>
+
+    <button type="submit">Registrarse</button>
+</form>

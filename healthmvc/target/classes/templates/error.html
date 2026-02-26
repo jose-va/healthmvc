@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f8d7da; color: #721c24; }
+        .container { max-width: 600px; margin: auto; background-color: #f5c6cb; padding: 20px; border-radius: 8px; }
+        h2 { color: #721c24; }
+        a { display: inline-block; margin-top: 15px; text-decoration: none; color: #004085; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Ha ocurrido un error</h2>
+    <p th:text="${errorMessage}">Mensaje de error: </p>
+    <a th:href="@{/register}">Volver al registro</a> |
+    <a th:href="@{/login}">Ir al login</a>
+</div>
+</body>
+</html>

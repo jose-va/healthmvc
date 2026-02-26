@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Detalle de Cita</title>
+</head>
+
+<body>
+    <h2>Detalle de la Cita</h2>
+    <div>
+        <p><strong>Fecha:</strong> <span th:text="${cita.fecha}"></span></p>
+        <p><strong>Hora:</strong> <span th:text="${cita.hora}"></span></p>
+        <p><strong>Especialidad:</strong> <span th:text="${cita.especialidad}"></span></p>
+        <p><strong>Descripción:</strong> <span th:text="${cita.descripcion}"></span></p>
+        <p><strong>Estado:</strong> <span th:text="${cita.estado}"></span></p>
+        <p><strong>Paciente:</strong> <span th:text="${cita.pacienteNombre}"></span></p>
+        <p><strong>Médico:</strong>
+            <span th:if="${cita.medicoNombre != null}">Dr. <span th:text="${cita.medicoNombre}"></span></span>
+            <span th:if="${cita.medicoNombre == null}">Sin asignar</span>
+        </p>
+    </div>
+
+    <div sec:authorize="hasRole('PACIENTE')" th:if="${cita.estado == 'PROGRAMADA'}">
+        <a th:href="@{/citas/{id}/editar(id=${cita.id})}">Editar Cita</a>
+
+        <form th:action="@{/citas/{id}/cancelar(id=${cita.id})}" method="post" style="display:inline;">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <button type="submit" onclick="return confirm('¿Seguro que deseas cancelar esta cita?');">Cancelar
+                Cita</button>
+        </form>
+    </div>
+    <br />
+    <a th:href="@{/citas}">Volver a mis citas</a>
+</body>
+
+</html>
