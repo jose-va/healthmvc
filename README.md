@@ -1,15 +1,15 @@
 # Práctica healthmvc
 En esta aplicación, podremos gestionar una serie de citas médicas realizadas por los pacientes del centro de salud. Podemos registrarnos en la aplicación, y posteriormente, 
 editar los datos de nuestro perfil o directamente crear una cita. Los médicos tendrán la posibilidad de ver todas las citas para una gestión de integra de las mismas.
+
 ### Ejemplo de uso
 ![Paciente](./assets/paciente-ejemplo.gif)
-![Medico](./assets/medico-ejemplo.gif)
 
 ## Explicación de seguridad
 
-Spring Security va a controlar seguridad de la aplicación, se encargará de autenticar usuarios, autorizar acciones, controlar qué podemos hacer, 
-restringir el acceso a páginas y URLs de nuestra app y manejo de sesiones y tokens. En nuestra aplicación, trataremos los pacientes y los médicos como roles para
-gestionar la autorización a las distintas partes
+Spring Security va a controlar seguridad de la aplicación; se encargará de autenticar usuarios, autorizar acciones, controlar qué podemos hacer, 
+restringir el acceso a páginas y URLs de nuestra app, así como manejar sesiones y tokens. Trataremos los pacientes y los médicos como roles distintivos
+para gestionar la autorización a las distintas partes de la app
 
 ### Componentes Principales
 
@@ -22,7 +22,7 @@ En esta clase de configuración se define:
 * JWT
 
 #### Usuarios y Roles 
-Usuarios del sistema. Se usta información para autenticar al usuario y decidir a qué partes de la aplicación tiene acceso permitido. 
+Autenticar al usuario y decidir en qué partes de la aplicación tendrá acceso permitido. 
 * Nombre del usuario.
 * Contraseña encriptada.
 * Rol de paciente o médico.
