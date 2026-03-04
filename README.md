@@ -1,6 +1,6 @@
 # Práctica healthmvc
 En esta aplicación, podremos gestionar una serie de citas médicas realizadas por los pacientes del centro de salud. Podemos registrarnos en la aplicación, y posteriormente, 
-editar los datos de nuestro perfil o directamente crear una cita. Los médicos tendrán la posibilidad de ver todas las citas para una gestión de integra de las mismas.
+editar los datos de nuestro perfil o directamente crear una cita. Los médicos tendrán la posibilidad de ver todas las citas para una gestión integra de las mismas.
 
 ### Ejemplo de uso
 ![Paciente](./assets/ejemplo.gif)
